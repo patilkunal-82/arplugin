@@ -4,6 +4,10 @@ exports.coolMethod = function (arg0, success, error) {
     exec(success, error, 'DemoPlugin', 'coolMethod', [arg0]);
 };
 
-module.exports.add = function (arg0, success, error) {
+exports.add = function (arg0, success, error) {
     exec(success, error, 'DemoPlugin', 'add', [arg0]);
 };
+
+exports.getContacts = function (arg0, success, error) {
+    exec(success, error, 'DemoPlugin', 'getContacts', [arg0]);
+}

@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<plugin id="cordova-plugin-demoplugin" version="1.0" 
+<plugin id="cordova-plugin-arplugin" version="1.0" 
     xmlns="http://apache.org/cordova/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>DemoPlugin</name>
-    <js-module name="DemoPlugin" src="www/DemoPlugin.js">
-        <clobbers target="DemoPlugin"/>
+    <js-module name="ArPlugin" src="www/ArPlugin.js">
+        <clobbers target="ArPlugin"/>
     </js-module>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
-            <feature name="DemoPlugin"><param name="ios-package" value="DemoPlugin" /></feature>
+            <feature name="ArPlugin"><param name="ios-package" value="ArPlugin" /></feature>
         </config-file>
-        <source-file src="src/ios/DemoPlugin.swift" />
+        <source-file src="src/ios/ArPlugin.swift" />
     </platform>
 
 </plugin>

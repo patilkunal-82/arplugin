@@ -1,7 +1,7 @@
 {
-  "name": "demoplugin",
+  "name": "arplugin",
   "version": "1.0.0",
-  "description": "demo plugin",
+  "description": "ar plugin for markers and augmented content",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

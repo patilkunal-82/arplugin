@@ -2,7 +2,7 @@ import Foundation
 import Contacts
 
 
-@objc(DemoPlugin) class DemoPlugin : CDVPlugin {
+@objc(ArPlugin) class ArPlugin : CDVPlugin {
 
     // MARK: Properties
     var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR)

@@ -31,7 +31,7 @@ import Contacts
         self.commandDelegate!.send(pluginResult, callbackId: command.callbackId)
     }
 
-    @objc(getContacts:) func getContacts(_ command CDVInvokedUrlCommand) {
+    @objc(getContacts:) func getContacts(_ command: CDVInvokedUrlCommand) {
 
           var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR)
           

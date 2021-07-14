@@ -24,7 +24,7 @@ import Contacts
                 let total = String(p1 + p2)
                 pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: total)
             } else {
-                pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Something wrong")
+                pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messafe: "Something wrong")
             }
         }
 
@@ -86,6 +86,25 @@ import Contacts
 
            self.commandDelegate!.send(pluginResult, callbackId: command.callbackId)
 
+    }
+
+    @objc(viewAR:) func viewAR(_ command: CDVInvokedUrlCommand){
+    
+    /*
+       ViewAR button for a BOOK in the UI will call the viewAR() function of the ArPlugin and will also pass the bookId.
+       This function will open the camera view and will start looking for the anchors that are specific to the bookId.
+       Once correct set of contents is found for the anchor, this content set will be rendered on
+       the screen.
+       
+     */
+        
+        print("function from where ArView controller is invoked")
+        let arViewController = BookARViewController();
+        let viewController = UIViewController();
+        viewController.present(arViewController, animated: true, completion: nil)
+        //present(arViewController, animated: true, completion: nil)
+        
+       
     }
 
 }

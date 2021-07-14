@@ -11,3 +11,7 @@ exports.add = function (arg0, success, error) {
 exports.getContacts = function (arg0, success, error) {
     exec(success, error, 'ArPlugin', 'getContacts', [arg0]);
 }
+
+exports.viewAR = function (arg0, success, error) {
+    exec(success, error, 'ArPlugin', 'viewAR', [arg0]);
+}

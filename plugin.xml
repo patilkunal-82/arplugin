@@ -12,6 +12,12 @@
             <feature name="ArPlugin"><param name="ios-package" value="ArPlugin" /></feature>
         </config-file>
         <source-file src="src/ios/ArPlugin.swift" />
+        <source-file src="src/ios/Document.swift" />
+        <source-file src="src/ios/DocumentBrowserViewController.swift" />
+        <source-file src="src/ios/DocumentView.swift" />
+        <source-file src="src/ios/ImageContainerPlaneNode.swift" />
+        <source-file src="src/ios/ViewController.swift" />
+        <source-file src="src/ios/BookARViewController.swift" />
     </platform>
 
 </plugin>

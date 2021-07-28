@@ -2,6 +2,7 @@ import Foundation
 import Contacts
 
 
+
 @objc(ArPlugin) class ArPlugin : CDVPlugin {
 
     // MARK: Properties
@@ -24,7 +25,7 @@ import Contacts
                 let total = String(p1 + p2)
                 pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: total)
             } else {
-                pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messafe: "Something wrong")
+                pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Something wrong")
             }
         }
 
@@ -88,24 +89,27 @@ import Contacts
 
     }
 
-    @objc(viewAR:) func viewAR(_ command: CDVInvokedUrlCommand){
+    @objc(viewAR:) func viewAR(_ command: CDVInvokedUrlCommand) {
     
     /*
        ViewAR button for a BOOK in the UI will call the viewAR() function of the ArPlugin and will also pass the bookId.
-       This function will open the camera view and will start looking for the anchors that are specific to the bookId.
+       This function will open the camera view and will start looking for the anchors that are specific to the bookId. - done
        Once correct set of contents is found for the anchor, this content set will be rendered on
        the screen.
        
      */
-        
-        print("function from where ArView controller is invoked")
-        let arViewController = BookARViewController();
-        let viewController = UIViewController();
+        let bookID = (command.arguments[0] as? NSObject)?.value(forKey: "param1") as? String
+        print("Received BOOK ID IS AR BOOK ID:", bookID)
+        let arViewController = BookARViewController()
         viewController.present(arViewController, animated: true, completion: nil)
-        //present(arViewController, animated: true, completion: nil)
+       
         
        
     }
 
 }
+
+
+    
+
 

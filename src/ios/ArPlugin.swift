@@ -99,8 +99,16 @@ import Contacts
        
      */
         let bookID = (command.arguments[0] as? NSObject)?.value(forKey: "param1") as? String
-        print("Received BOOK ID IS AR BOOK ID:", bookID)
+        let bookName = (command.arguments[0] as? NSObject)?.value(forKey: "param2") as? String
+        let anchorContentURLsMap = (command.arguments[0] as? NSObject)?.value(forKey: "param3") as? Dictionary
+
+        print("Received BOOK ID IS :", bookID)
+        print("Received BOOK NAME IS BOOK NAME:", bookName)
+        print("Received BOOK URLs MAP:", anchorContentURLsMap)
         let arViewController = BookARViewController()
+        arViewController.bookAnchorContentNames = anchorContentURLsMap
+        //arViewController.bookDirectoryPath = getBookPath(forBookWithKey: bookCell.bookKey)
+        arViewController.currentBookName = bookName
         viewController.present(arViewController, animated: true, completion: nil)
        
         

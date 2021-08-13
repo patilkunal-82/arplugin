@@ -10,9 +10,12 @@ import SceneKit
 import AVKit
 import RealityKit
 import SwiftUI
+import AVFoundation
+import ARKit
+import UIKit
 
 let imageWidthDimension: CGFloat = 0.2
-
+var sceneView: ARSCNView!
 
 
 
@@ -28,7 +31,10 @@ final class ImagesContainerPlaneNode: SCNNode {
           prepareGeometry()
         
     
-        simdWorldOrientation = simd_quatf(angle: Float.pi/2, axis: simd_float3(x: 0, y: 1, z: 0)) * simd_quatf(angle:Float.pi/2, axis: simd_float3(x: -1, y: 0, z: 0))
+       // simdWorldOrientation = simd_quatf(angle: Float.pi/2, axis: simd_float3(x: 0, y: 1, z: 0)) * simd_quatf(angle:Float.pi/2, axis: simd_float3(x: -1, y: 0, z: 0))
+        
+        simdWorldOrientation = simd_quatf(angle: Float.pi/2, axis: simd_float3(x: -1, y: 0, z: 0))
+        
           
       }
       
@@ -56,9 +62,9 @@ final class ImagesContainerPlaneNode: SCNNode {
                geometry?.firstMaterial?.diffuse.contents = image
              geometry?.firstMaterial?.locksAmbientWithDiffuse = true
                 
-            /*
-                simdWorldOrientation = simd_quatf(matrix_identity_float3x3)
-               simdWorldOrientation = simd_quatf(angle: Float.pi/2, axis: simd_float3(x: 0, y: 1, z: 0)) * simd_quatf(angle:Float.pi/2, axis: simd_float3(x: -1, y: 0, z: 0)) */
+            
+               // simdWorldOrientation = simd_quatf(matrix_identity_float3x3)
+               //simdWorldOrientation = simd_quatf(angle: Float.pi/2, axis: simd_float3(x: 0, y: 1, z: 0)) * simd_quatf(angle:Float.pi/2, axis: simd_float3(x: -1, y: 0, z: 0))
                 
                 
              
@@ -83,22 +89,35 @@ final class ImagesContainerPlaneNode: SCNNode {
             
         case .video:
             if let video = assetContainer.video {
-               geometry?.firstMaterial?.diffuse.contents = video
+                
+                /*geometry?.firstMaterial?.diffuse.contents = video
                 geometry?.firstMaterial?.locksAmbientWithDiffuse = true
-                print("video orientation reset")
-          //resetting
+               
+                print("VIDEO \(video)")
+                
+                geometry?.firstMaterial?.isDoubleSided = true
+                video.play()
+                 */
+                
+                let controller = AVPlayerViewController()
+                controller.player = video
+                controller.player?.play()
+                
+                
+              
+                
+                
+                //present(playerViewController, animated: true, completion: nil)
+
+          //pev resetting
               //   simdWorldOrientation = simd_quatf(matrix_identity_float3x3)
             //    simdWorldOrientation = simd_quatf(angle: Float.pi/2, axis: simd_float3(x: 0, y: 0, z: -1))
-              let controller = AVPlayerViewController()
+               
+               /*let controller = AVPlayerViewController()
                controller.player = video
-               controller.player?.play()
+               controller.player?.play()*/
                 
-                /*let videoMaterial = VideoMaterial(avPlayer: video)
-                
-                //Sets the aspect ratio of the video to be played, and the corner radius of the video
-                let videoPlane = ModelEntity(mesh: .generatePlane(width: 0.2, depth: 0.1, cornerRadius: 0.3), materials: [videoMaterial])
-                
-                self.addChild(videoPlane)*/
+      
             }
         break
        

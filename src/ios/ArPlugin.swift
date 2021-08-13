@@ -98,21 +98,32 @@ import Contacts
        the screen.
        
      */
-        let bookID = (command.arguments[0] as? NSObject)?.value(forKey: "param1") as? String
-        let bookName = (command.arguments[0] as? NSObject)?.value(forKey: "param2") as? String
-        let anchorContentURLsMap = (command.arguments[0] as? NSObject)?.value(forKey: "param3") as? Dictionary
+            
+        let bookName = (command.arguments[0] as? NSObject)?.value(forKey: "param1") as? String
+        let anchorContentURLs = (command.arguments[0] as? NSObject)?.value(forKey: "param2") as? Array<[Any]>
+        let bookID = (command.arguments[0] as? NSObject)?.value(forKey: "param3") as? String
 
-        print("Received BOOK ID IS :", bookID)
-        print("Received BOOK NAME IS BOOK NAME:", bookName)
-        print("Received BOOK URLs MAP:", anchorContentURLsMap)
+        //print("Received BOOK ID IS :", bookID)
+        //print("Received BOOK NAME IS BOOK NAME:", bookName!)
+        //print("Received BOOK URLs MAP:", anchorContentURLs!)
         let arViewController = BookARViewController()
-        arViewController.bookAnchorContentNames = anchorContentURLsMap
-        //arViewController.bookDirectoryPath = getBookPath(forBookWithKey: bookCell.bookKey)
-        arViewController.currentBookName = bookName
-        viewController.present(arViewController, animated: true, completion: nil)
-       
         
-       
+        var bookAnchorContentURLsDict: [String : [String]] = [:]
+        
+        for item in anchorContentURLs ?? [] {
+            //print("Anchor URL \(item[0])")
+            //print("Content URLs \(item[1])")
+            guard let key = item[0] as? String, let value = item[1] as? [String] else { continue }
+            bookAnchorContentURLsDict[key] = value
+        }
+        //print("created dict: \(bookAnchorContentURLsDict)")
+        arViewController.bookAnchorContentNames = bookAnchorContentURLsDict
+        //arViewController.bookDirectoryPath = getBookPath(forBookWithKey: bookCell.bookKey)
+        arViewController.currentBookName = bookName!
+        viewController.present(arViewController, animated: true, completion: nil)
+        
+        
+    
     }
 
 }

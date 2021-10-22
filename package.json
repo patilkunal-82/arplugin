@@ -7,5 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kunal",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patilkunal-82/arplugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/patilkunal-82/arplugin/issues"
+  },
+  "homepage": "https://github.com/patilkunal-82/arplugin#readme"
 }

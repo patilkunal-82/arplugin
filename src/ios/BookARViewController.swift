@@ -407,15 +407,15 @@ extension BookARViewController {
                          contentArray.append(assetContainer);
                      }
                      if (path.contains("video")) {
-                         /*guard let contentVideo = getVideoAtBookDirectory(atPath: path) else { continue }
+                         guard let contentVideo = getVideoAtBookDirectory(atPath: path) else { continue }
                         
                          let assetContainer = AssetContainer(type: .video, video: contentVideo, imageURL: url)
                          print("Video URL is \(url)")
-                         contentArray.append(assetContainer);*/
-                         guard let contentImage = getImageAtBookDirectory(atPath: path) else { continue }
+                         contentArray.append(assetContainer);
+                         /*guard let contentImage = getImageAtBookDirectory(atPath: path) else { continue }
                          let assetContainer = AssetContainer(type: .image, image: contentImage, imageURL: url)
                          print("Image URL is \(url)")
-                         contentArray.append(assetContainer);
+                         contentArray.append(assetContainer);*/
                      }
              }
                 anchorsAndContentData[arRefImage] = contentArray
